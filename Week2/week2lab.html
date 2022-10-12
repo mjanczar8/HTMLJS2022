@@ -3,6 +3,37 @@
     <head>
         <meta charset="UTF-8">
         <title>Week 2 Lab</title>
+        <!--Example of in document style sheet-->
+        <style>
+            /*This is a comment in CSS*/
+            /*We are going to write some CSS here*/
+            /*CSS selectors - Paragraph element - color - font... P is the selector*/
+            p{
+                color: darkblue;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            h3,h2,h5{
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;background-color: aquamarine;
+                text-align: center;
+                border: 2px solid rgb(0, 100, 8);
+                border-radius: 10px;
+            }
+            body{
+                background-color: burlywood;
+                background-image: url("images/background.png");
+            }
+            a:link{
+                color: gold;
+                text-decoration: none;
+            }
+            a:visited{
+                color: gold;
+                text-decoration: none;
+            }
+            a:hover{
+                text-decoration: underline;
+            }
+        </style>
     </head>
     <body>
         <!--This is a Header 1 Element-->
@@ -24,13 +55,13 @@
         <h2>Class's Favorite Fast Food</h2>
         <ul>
             <li>McDonald's</li>
-            <li>Chik-fil-a</li>
+            <li><b>Chik-fil-a</b></li>
             <li>Dunkin'</li>
             <li>Five Guy's</li>
-            <li>Subway</li>
+            <li><i>Subway</i></li>
             <li>Wendy's</li>
             <li>Popeyes</li>
-            <li>Taco Bell</li>
+            <li>Taco<b>Bell</b> </li>
             <li>KFC</li>
             <li>Sonic</li>
             <li>Friendly's</li>
@@ -41,21 +72,21 @@
             <li>Legend of Zelda Breath of the Wild</li>
             <li>Hollow Knight</li>
             <li>Rocket League</li>
-            <li>Valorant</li>
+            <li><strong>Valorant</strong></li>
             <li>Fortnite</li>
             <li>Call of Duty Blops 2</li>
             <li>Super Mario Odessey</li>
             <li>Resident Evil 4</li>
-            <li>God of War</li>
+            <li style="color:pink">God of War</li>
             <li>League of Legends</li>
             <li>GTA V</li>
             <li>Super Smash Bros.</li>
-            <li>Minecraft</li>
+            <li><em>Minecraft</em></li>
         </ol>
 
         <!--Colon spereates property from value in CSS-->
         <!-- Style is the attribute of HTML tag, Color is the property, red is the value... Color and red is CSS-->
-        <p style="color:#ff0000;font-family: Arial, Helvetica, sans-serif;">Bacon ipsum dolor amet bacon chicken jowl pancetta andouille, ground round pork chop fatback. Tenderloin meatball andouille short loin, tail venison biltong doner turducken picanha landjaeger brisket beef beef ribs. Drumstick turducken tail, shank sausage prosciutto ham sirloin pork. Cupim kielbasa filet mignon pig strip steak. Turkey chicken buffalo frankfurter, flank bacon meatloaf brisket fatback short ribs tenderloin venison andouille capicola. Short loin venison swine tail pork loin beef ribs ground round turducken boudin pork belly cupim cow capicola porchetta brisket. Jowl bresaola cupim, cow shank meatball sirloin landjaeger tri-tip.</p>
+        <p style="color:#ff0000;font-family: Arial, Helvetica, sans-serif;"><strong>Bacon ipsum</strong> dolor amet bacon chicken jowl pancetta andouille, ground round pork chop fatback. Tenderloin meatball andouille short loin, tail venison biltong doner turducken picanha landjaeger brisket beef beef ribs. Drumstick <strong>turducken</strong> tail, shank sausage prosciutto ham sirloin pork. Cupim kielbasa filet mignon pig strip steak.<em>Turkey</em> chicken buffalo frankfurter, flank bacon meatloaf brisket fatback short ribs tenderloin venison andouille capicola. Short loin venison swine tail pork loin beef ribs ground round turducken boudin pork belly cupim cow capicola porchetta brisket. Jowl bresaola cupim, cow shank meatball sirloin landjaeger tri-tip.</p>
         <br>
 
         <!--Example of Image Element-->
