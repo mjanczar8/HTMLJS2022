@@ -13,6 +13,9 @@ body{
 ul{
     background-color: whitesmoke;
     border: 2px double powderblue;
+    width: 150px;
+    margin: auto;
+    text-align: center;
 
 
 }
