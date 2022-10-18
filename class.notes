@@ -1,0 +1,41 @@
+[javascript]
+
+JavaScript
+//head is for code unseen by the website
+//body is the meat and content of the website
+//title is the tab title on website
+//<p> p tag / paragraph element
+//DOM - Document object model - !DOCTYPE html
+//CSS - cascading style sheets
+//JavaScript -
+//HTML - Hypertext Markup Language
+//Doctype - determines what tipe of HTML u are using
+
+
+CSS
+//CSS syntax - property:value; - color:red
+
+//in-line style sheet - high power, specific line
+//Attributes 
+//    src = source - used for images
+//    href = hyperlink refrence
+//    alt = alt text on img
+//absolute path - website, youtube
+//relative path - on your server, ur imgs
+//style - inline css, key value pair
+
+//in-document style sheet - in HTML file - middle power
+<style>
+    p{
+        properties and values here
+        color:red
+
+    }
+</style>
+
+//linked style sheet - low power, global
+//    individual css file that gets linked to HTML page/s
+
+<link href="style.css" ref="stylesheet">
+
+
