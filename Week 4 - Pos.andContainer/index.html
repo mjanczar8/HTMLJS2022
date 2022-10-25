@@ -4,20 +4,131 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Week 4 | Position and Container Elements</title>
         <style>
+            body{
+                margin: 0;
+                display: flex;
+                justify-content: center;
+            }
             #container{
                 background-color: grey;
                 border: 1px solid black;
                 width: 1000px;
-                height: 850px;
+                /* height: 850px; */
             }
-
+            header{
+                width: 100%;
+                /* height: 100px; */
+                background-color: beige; 
+                text-align: center;        
+            }
+            nav{
+                width: 100%;
+                /* height: 50px; */
+                background-color: blueviolet;
+            }
+            section{
+                float: left;
+                width: 65%;
+                /* height: 300px; */
+                background-color: brown;
+            }
+            article{
+                float: left;
+                width: 65%;
+                /* height: 300px; */
+                background-color: aquamarine;
+            }
+            aside{
+                float: right;
+                width: 35%;
+                /* height: 600px; */
+                background-color: cadetblue;
+            }
+            footer{
+                clear: both;
+                width: 100%;
+                /* height: 100px; */
+                background-color: orange;
+                text-align: center;
+            }
+            .clicker{
+                margin: auto;
+                width: 200px;
+                height: 100px;
+                border: 1px solid black;
+                border-radius: 10px;
+                background-color: aquamarine;
+                text-align: center;
+                font-family: monospace;
+                font-size: 15px;
+            }
+            .buttons{
+                margin: auto;
+                width: 300px;
+                height: 50px;   
+            }
+            .btn{
+                float: left;
+                width: 140px;
+                height: 50px;
+                background-color: lightgrey;
+                text-decoration: none;
+                text-align: center;
+                line-height: 50px;
+                color: yellow;
+                font-family: monospace;
+                font-size: 20px;
+                margin-right: 5px;
+            }
+            .btn:hover{
+                background-color: grey;
+            }
         </style>
     </head>
     <body>
         <div id="container">
+            <!-- HTML content goes here -->
+            <header>
+                <h1>Week 4 - Day 1 | CSS Position and Containers</h1>
+            </header>
+            <nav>
+                <div class="buttons">
+                    <a href="#" class="btn">Home</a>
+                    <a href="#" class="btn">Page 2</a>
 
+                </div>
+            </nav>
+            <aside>
+                <ul>
+                    <li>Element 1</li>
+                    <li>Element 2</li>
+                    <li>Element 3</li>
+                </ul>
+            </aside>
+            <section>
+                <div class="clicker">
+                    <p>Clicks:<span id=" clicks"></span></p>
+                    <button onclick="updateClicks()">Click Here</button>
+                    <button onclick="window.location.href = 'https://www.youtube.com'">Click this button for YouTube</button>
+                </div>
+            </section>
+            <article>
+                <h2>This is an Article</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam in maxime non nulla animi, aliquid nisi placeat explicabo ipsum dicta ab quasi eaque autem. Sapiente exercitationem suscipit totam commodi non.</p>
+            </article>
+            <footer>
+                <p>&copy; 2022 HTML/JavaScript Class</p>
+            </footer>
         </div>
     </body>
+    <script>
+        var clicks = 0;
+
+        function updateClicks(){
+            clicks += 1;  
+            document.getElementById(" clicks").innerHTML = clicks;
+        }
+    </script>
 </html>
