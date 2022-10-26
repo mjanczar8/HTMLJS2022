@@ -38,3 +38,10 @@ ID and Class are Attributes
 
 ID can use once (# is selector)
 Class can use unlimited (. is selector)
+
+Character Entities
+    &copy
+    &yen
+    &pound
+    &li
+    &gt
