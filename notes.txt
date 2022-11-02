@@ -3,11 +3,12 @@ head is for code unseen by the website
 body is the meat and content of the website
 title is the tab title on website
 <p> p tag / paragraph element
-DOM - Document object model - !DOCTYPE html
+DOM - Document object model - !DOCTYPE html - framework
 CSS - cascading style sheets
-JavaScript -
+JavaScript - proramming, able to make dom interactive, accept user input
 HTML - Hypertext Markup Language
 Doctype - determines what tipe of HTML u are using
+
 
 
 
@@ -45,3 +46,51 @@ Character Entities
     &pound
     &li
     &gt
+
+
+JavaScript Notes
+
+2 types of JavaScript
+    vanilla - og syntax
+    es6 - newer standard - syntactic standard
+
+script element - can write in the HTML document OR link JS file
+    IN HTML
+    <script>
+        var name="Jordan";
+    </script>
+
+    IN JavaScript FILE
+    <script src="script.js"></script>
+
+JS reads top - bottom
+-----
+
+JS syntax -
+    
+Variables - constants
+    var age= 23;
+    const dob= 1993;
+
+Data types for vars
+    Int/Integer = Whole numbers, 10
+    Float/Floatingpoint = 3.14, fractions
+    Strings = Character data, "Michael", xyz
+    Bool/Boolean = True or False, Light switch
+
+Data collections
+    Array = holds group of data
+
+Functions
+    syntax                    
+        function ageAndName(age, Name){
+                            ^ parameters
+        var age= age;
+        var name= name;
+        }
+
+        ageAndName(21, "Michael");
+
+        no spaces, CAPS MATTERS
+    CamelCasing - ageAndName
+
