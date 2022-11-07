@@ -65,11 +65,21 @@ hr{
     border: 1px solid yellow;
 }
 
+#grid{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#grid > * {
+    flex: 0 1 15em;
+    padding: 2em;
+}
+
 article{
-    margin-top: 25px;
+    margin-top: 30px;
     margin-bottom: 30px;
-    float: left;
-    margin-left: 9%;
+    
 }
 
 h2{
@@ -79,7 +89,6 @@ h2{
 }
 
 .indent{
-    width: 400px;
     text-indent: 25px;
 }
 
@@ -102,3 +111,4 @@ footer{
     clear: both;
     text-align: center;
 }
+
