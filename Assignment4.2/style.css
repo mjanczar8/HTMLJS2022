@@ -45,7 +45,8 @@ hr{
     clear: both;
     border: 0;
     background-color: black;
-    height: 2px;
+    height: 1px;
+    border-radius: 10px;
 }
 
 .btn{
@@ -69,11 +70,13 @@ hr{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-left: 150px;
+    margin-right: 150px;
 }
 
 #grid > * {
     flex: 0 1 15em;
-    padding: 2em;
+    padding: 3em;
 }
 
 article{
