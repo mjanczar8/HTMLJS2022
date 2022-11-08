@@ -48,7 +48,7 @@ Character Entities
     &gt
 
 
-JavaScript Notes
+JavaScript Notes -------------------------------------------------------------------------------------------------------
 
 2 types of JavaScript
     vanilla - og syntax

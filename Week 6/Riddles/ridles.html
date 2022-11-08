@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 6 | Riddles and JavaScript</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family:Cust;
+            src: url(fonts/Chopsic.otf);
+        }
+        body{
+            font-family: 'Cust';
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Riddles and JavaScript Lab</h1>
+        <ol>
+            <li>
+                <p>What comes one in a minute, twice in a moment, and never in a thousand years?</p>
+                <br>
+                <button onclick="showAnswer('answer','The letter M.')">Answer</button>
+                <span id="answer"></span>
+                <hr>
+            </li>
+            <li>
+                <p>What must be broken before you use it?</p>
+                <br>
+                <button onclick="showAnswer('answer2','An egg.')">Answer</button>
+                <span id="answer2"></span>
+                <hr>
+            </li>
+            <li>
+                <p>What must be broken before you use it?</p>
+                <br>
+                <button onclick="showAnswer('answer3','A fence')">Answer</button>
+                <span id="answer3"></span>
+                <hr>
+            </li>
+        </ol>
+    </div>
+    <script src="js/riddles.js"></script>
+</body>
+
+</html>
