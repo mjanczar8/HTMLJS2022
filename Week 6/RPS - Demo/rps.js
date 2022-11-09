@@ -1,9 +1,9 @@
 //canvas stuff
-var canvas = document.getElementById("c");
-var ctx = canvas.getContext("2d");
+// var canvas = document.getElementById("c");
+// var ctx = canvas.getContext("2d");
 
-ctx.font = "40px Cust";
-ctx.fillText("Welcome to RPS Game!", 200, 280);
+// ctx.font = "40px Cust";
+// ctx.fillText("Welcome to RPS Game!", 200, 280);
 
 
 // alert('yo');
