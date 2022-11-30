@@ -8,21 +8,29 @@ var ctx = canvas.getContext("2d");
 var rock = new Image();
 var paper = new Image();
 var scissors = new Image();
+var spock = new Image();
+var lizard = new Image();
 var hrock = new Image();
 var hpaper = new Image();
 var hscissors = new Image();
+var hspock = new Image();
+var hlizard = new Image();
 
-rock.src = "images/rock.jpg";
-paper.src = "images/paper.jpg";
+rock.src = "images/Rock.jpg";
+paper.src = "images/Paper.jpg";
 scissors.src = "images/scissors.jpg";
-hrock.src = "images/rock2.jpg";
-hpaper.src = "images/paper2.jpg";
-hscissors.src = "images/scissors2.jpg";
+spock.src = "images/Spock.jpg";
+lizard.src = "images/Lizard.jpg";
+hrock.src = "images/RockH.jpg";
+hpaper.src = "images/PaperH.jpg";
+hscissors.src = "images/ScissorsH.jpg";
+hspock.src = "images/SpockH.jpg";
+hlizard.src = "images/LizardH.jpg";
 
 var result = "Select a button from above to choose."
 
 hscissors.onload = function(){
-    draw(rock, paper, scissors, rock, paper, scissors,);
+    draw(rock, paper, scissors, spock, lizard, rock, paper, scissors, spock, lizard);
 }
 
 document.addEventListener("keydown", keyPressDown);
@@ -38,14 +46,14 @@ function keyPressUp(e){
     console.log(e.keyCode);
     if(e.keyCode == 32){
      gameOver = false;
-     draw(rock, paper, scissors, rock, paper, scissors,);
+     draw(rock, paper, scissors, spock, lizard, rock, paper, scissors, spock, lizard);
 
     }
 }
 
 
 
-function draw(rock, paper, scissors, crock, cpaper, cscissors){
+function draw(rock, paper, scissors, spock, lizard, crock, cpaper, cscissors, cspock, clizard){
     if(gameOver == true){
         ctx.clearRect(0, 0, canvas.width, canvas.height)
         ctx.font = "30px Arial";
