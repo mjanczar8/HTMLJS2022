@@ -13,11 +13,21 @@ var fuel = startFuel;
 var fuelBarWidth = 300;
 var speed = 5;
 var gameOver = true;
+var carWidth = 50;
+
 
 //start timer vars
 var seconds = 3;
 var fps = 60;
 var frames = fps;
+
+//game sprites
+var carSprite = new Image();
+carSprite.src = "images/car.png";
+
+carSprite.onload = function(){
+    main();
+}
 
 
 //add event handler for starting the game
@@ -64,7 +74,7 @@ function main(){
         drawCar();
         drawFuelBar();
 
-        if(fuel <= 0 || carPos + 40 > finish){
+        if(fuel <= 0 || carPos + carWidth > finish){
             drawResults();
         }
     }
@@ -84,7 +94,8 @@ function drawStartFinishLines(){
 function drawCar(){
     //draw car
     ctx.fillStyle = "red";
-    ctx.fillRect( carPos, canvas.height/2, 40, 20);
+    // ctx.fillRect( carPos, canvas.height/2, 40, 20);
+    ctx.drawImage( carSprite, carPos, canvas.height/2, carWidth, 20)
 }
 
 function drawFuelBar(){
@@ -102,7 +113,7 @@ function drawFuelBar(){
 }
 
 function drawResults(){
-    if(carPos + 40 > finish){
+    if(carPos + carWidth > finish){
         ctx.save();
         ctx.fillStyle = "black";
         ctx.font = "25px Arial";
