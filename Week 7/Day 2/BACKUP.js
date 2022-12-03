@@ -15,9 +15,9 @@ var hscissors = new Image();
 rock.src = "images/rock.jpg";
 paper.src = "images/paper.jpg";
 scissors.src = "images/scissors.jpg";
-hrock.src = "images/rock2.jpg";
-hpaper.src = "images/paper2.jpg";
-hscissors.src = "images/scissors2.jpg";
+hrock.src = "images/rockH.jpg";
+hpaper.src = "images/paperH.jpg";
+hscissors.src = "images/scissorsH.jpg";
 
 var result = "Select a button from above to choose."
 

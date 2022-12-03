@@ -10,22 +10,24 @@ var paper = new Image();
 var scissors = new Image();
 var spock = new Image();
 var lizard = new Image();
+
 var hrock = new Image();
 var hpaper = new Image();
 var hscissors = new Image();
 var hspock = new Image();
 var hlizard = new Image();
 
-rock.src = "images/Rock.jpg";
-paper.src = "images/Paper.jpg";
+rock.src = "images/rock.jpg";
+paper.src = "images/paper.jpg";
 scissors.src = "images/scissors.jpg";
-spock.src = "images/Spock.jpg";
-lizard.src = "images/Lizard.jpg";
-hrock.src = "images/RockH.jpg";
-hpaper.src = "images/PaperH.jpg";
-hscissors.src = "images/ScissorsH.jpg";
-hspock.src = "images/SpockH.jpg";
-hlizard.src = "images/LizardH.jpg";
+spock.src = "images/spock.jpg"
+lizard.src = "images/lizard.jpg"
+
+hrock.src = "images/rockH.jpg";
+hpaper.src = "images/paperH.jpg";
+hscissors.src = "images/scissorsH.jpg";
+hspock.src = "images/spockH.jpg"
+hlizard.src = "images/lizardH.jpg"
 
 var result = "Select a button from above to choose."
 
@@ -70,9 +72,11 @@ function draw(rock, paper, scissors, spock, lizard, crock, cpaper, cscissors, cs
     ctx.textAlign = "center";
     ctx.fillStyle = "black";
     ctx.fillText("Player Choices", canvas.width/2, 100);
-    ctx.drawImage(rock, canvas.width/2 - rock.width/2 -100, 150);    
-    ctx.drawImage(paper, canvas.width/2 - paper.width/2, 150);    
-    ctx.drawImage(scissors, canvas.width/2 - scissors.width/2 +100, 150);    
+    ctx.drawImage(rock, canvas.width/2 - rock.width/2 -200, 150);    
+    ctx.drawImage(paper, canvas.width/2 - paper.width/2, -100, 150);    
+    ctx.drawImage(scissors, canvas.width/2 - scissors.width/2, 150);    
+    ctx.drawImage(spock, canvas.width/2 - spock.width/2 +100, 150);    
+    ctx.drawImage(lizard, canvas.width/2 - lizard.width/2 +200, 150);    
 
     ctx.fillText("Computer Choices", canvas.width/2, 325);
     ctx.drawImage(crock, canvas.width/2 - rock.width/2 -100, 375);    
