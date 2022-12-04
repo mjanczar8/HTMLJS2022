@@ -8,31 +8,31 @@ var ctx = canvas.getContext("2d");
 var rock = new Image();
 var paper = new Image();
 var scissors = new Image();
-var spock = new Image();
 var lizard = new Image();
+var spock = new Image();
 
 var hrock = new Image();
 var hpaper = new Image();
 var hscissors = new Image();
-var hspock = new Image();
 var hlizard = new Image();
+var hspock = new Image();
 
 rock.src = "images/rock.jpg";
 paper.src = "images/paper.jpg";
 scissors.src = "images/scissors.jpg";
-spock.src = "images/spock.jpg"
-lizard.src = "images/lizard.jpg"
+lizard.src = "images/lizard.jpg";
+spock.src = "images/spock.jpg";
 
 hrock.src = "images/rockH.jpg";
 hpaper.src = "images/paperH.jpg";
 hscissors.src = "images/scissorsH.jpg";
-hspock.src = "images/spockH.jpg"
-hlizard.src = "images/lizardH.jpg"
+hlizard.src = "images/lizardH.jpg";
+hspock.src = "images/spockH.jpg";
 
-var result = "Select a button from above to choose."
+var result = "Select a button from above to choose.";
 
-hscissors.onload = function(){
-    draw(rock, paper, scissors, spock, lizard, rock, paper, scissors, spock, lizard);
+hspock.onload = function(){
+    draw(rock, paper, scissors, lizard, spock, rock, paper, scissors, lizard, spock);
 }
 
 document.addEventListener("keydown", keyPressDown);
@@ -48,14 +48,14 @@ function keyPressUp(e){
     console.log(e.keyCode);
     if(e.keyCode == 32){
      gameOver = false;
-     draw(rock, paper, scissors, spock, lizard, rock, paper, scissors, spock, lizard);
+     draw(rock, paper, scissors, lizard, spock, rock, paper, scissors, lizard, spock);
 
     }
 }
 
 
 
-function draw(rock, paper, scissors, spock, lizard, crock, cpaper, cscissors, cspock, clizard){
+function draw(rock, paper, scissors, lizard, spock, crock, cpaper, cscissors, clizard, cspock,){
     if(gameOver == true){
         ctx.clearRect(0, 0, canvas.width, canvas.height)
         ctx.font = "30px Arial";
@@ -75,13 +75,15 @@ function draw(rock, paper, scissors, spock, lizard, crock, cpaper, cscissors, cs
     ctx.drawImage(rock, canvas.width/2 - rock.width/2 -200, 150);    
     ctx.drawImage(paper, canvas.width/2 - paper.width/2, -100, 150);    
     ctx.drawImage(scissors, canvas.width/2 - scissors.width/2, 150);    
-    ctx.drawImage(spock, canvas.width/2 - spock.width/2 +100, 150);    
-    ctx.drawImage(lizard, canvas.width/2 - lizard.width/2 +200, 150);    
+    ctx.drawImage(lizard, canvas.width/2 - lizard.width/2 +100, 150);    
+    ctx.drawImage(spock, canvas.width/2 - spock.width/2 +200, 150);    
 
     ctx.fillText("Computer Choices", canvas.width/2, 325);
-    ctx.drawImage(crock, canvas.width/2 - rock.width/2 -100, 375);    
-    ctx.drawImage(cpaper, canvas.width/2 - paper.width/2, 375);    
-    ctx.drawImage(cscissors, canvas.width/2 - scissors.width/2 +100, 375);
+    ctx.drawImage(crock, canvas.width/2 - rock.width/2 -200, 375);    
+    ctx.drawImage(cpaper, canvas.width/2 - paper.width/2, -100, 375);    
+    ctx.drawImage(cscissors, canvas.width/2 - scissors.width/2, 375);
+    ctx.drawImage(clizard, canvas.width/2 - lizard.width/2 +100, 150);    
+    ctx.drawImage(cspock, canvas.width/2 - spock.width/2 +200, 150);  
 
     ctx.fillText(result, canvas.width/2, 525);
 }
