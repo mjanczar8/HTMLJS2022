@@ -1,11 +1,19 @@
 html,body{
     display: flex;
     justify-content: center;
-    background-image: linear-gradient(rgb(167, 167, 167),rgb(131, 131, 131));
-    background-repeat: no-repeat;
+    background-color: grey;
+    background-repeat: repeat;
     height: 1000px;
 }
 
+nav{
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+button{
+    font-size: 30px;
+}
 canvas {
     border: 1px solid black;
 }
@@ -14,3 +22,4 @@ h1{
     text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+

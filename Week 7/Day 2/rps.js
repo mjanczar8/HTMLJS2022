@@ -31,6 +31,9 @@ hspock.src = "images/spockH.jpg";
 
 var result = "Select a button from above to choose.";
 
+//win loss counter
+var win 
+
 hspock.onload = function(){
     draw(rock, paper, scissors, lizard, spock, rock, paper, scissors, lizard, spock);
 }
@@ -41,11 +44,11 @@ document.addEventListener("keyup", keyPressUp);
 var gameOver = true;
 
 function keyPressDown(e){
-    console.log(e.keyCode);
+    //console.log(e.keyCode);
 }
 
 function keyPressUp(e){
-    console.log(e.keyCode);
+    //console.log(e.keyCode);
     if(e.keyCode == 32){
      gameOver = false;
      draw(rock, paper, scissors, lizard, spock, rock, paper, scissors, lizard, spock);
@@ -55,7 +58,7 @@ function keyPressUp(e){
 
 
 
-function draw(rock, paper, scissors, lizard, spock, crock, cpaper, cscissors, clizard, cspock,){
+function draw(rock, paper, scissors, lizard, spock, crock, cpaper, cscissors, clizard, cspock){
     if(gameOver == true){
         ctx.clearRect(0, 0, canvas.width, canvas.height)
         ctx.font = "30px Arial";
@@ -68,22 +71,26 @@ function draw(rock, paper, scissors, lizard, spock, crock, cpaper, cscissors, cl
 
     //clear canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height)
+    ctx.font = "15px Arial";
+    ctx.textAlign = "right";
+    ctx.fillStyle = "black";
+    ctx.fillText("Wins" +)
     ctx.font = "30px Arial";
     ctx.textAlign = "center";
     ctx.fillStyle = "black";
     ctx.fillText("Player Choices", canvas.width/2, 100);
     ctx.drawImage(rock, canvas.width/2 - rock.width/2 -200, 150);    
-    ctx.drawImage(paper, canvas.width/2 - paper.width/2, -100, 150);    
+    ctx.drawImage(paper, canvas.width/2 - paper.width/2 -100, 150);    
     ctx.drawImage(scissors, canvas.width/2 - scissors.width/2, 150);    
     ctx.drawImage(lizard, canvas.width/2 - lizard.width/2 +100, 150);    
     ctx.drawImage(spock, canvas.width/2 - spock.width/2 +200, 150);    
 
     ctx.fillText("Computer Choices", canvas.width/2, 325);
-    ctx.drawImage(crock, canvas.width/2 - rock.width/2 -200, 375);    
-    ctx.drawImage(cpaper, canvas.width/2 - paper.width/2, -100, 375);    
-    ctx.drawImage(cscissors, canvas.width/2 - scissors.width/2, 375);
-    ctx.drawImage(clizard, canvas.width/2 - lizard.width/2 +100, 150);    
-    ctx.drawImage(cspock, canvas.width/2 - spock.width/2 +200, 150);  
+    ctx.drawImage(crock, canvas.width/2 - crock.width/2 -200, 375);    
+    ctx.drawImage(cpaper, canvas.width/2 - cpaper.width/2 -100, 375);    
+    ctx.drawImage(cscissors, canvas.width/2 - cscissors.width/2, 375);
+    ctx.drawImage(clizard, canvas.width/2 - clizard.width/2 +100, 375);    
+    ctx.drawImage(cspock, canvas.width/2 - cspock.width/2 +200, 375);  
 
     ctx.fillText(result, canvas.width/2, 525);
 }
@@ -102,6 +109,8 @@ var rps = [];
 rps[0] = 'Rock';
 rps[1] = 'Paper';
 rps[2] = 'Scissors';
+rps[3] = 'Lizard';
+rps[4] = 'Spock';
 
 document.getElementById('rock').addEventListener('click', function(e){
     //alert('You Clicked ' + rps[0]);
@@ -115,69 +124,162 @@ document.getElementById('scissors').addEventListener('click', function(e){
     //alert('You Clicked ' + rps[2]);
     playGame(rps[2]);
 });
+document.getElementById('lizard').addEventListener('click', function(e){
+    //alert('You Clicked ' + rps[3]);
+    playGame(rps[3]);
+});
+document.getElementById('spock').addEventListener('click', function(e){
+    //alert('You Clicked ' + rps[4]);
+    playGame(rps[4]);
+});
 
 function playGame(playerChoice){
     if(gameOver == true){
         return;
     }
-    var cpuChoice = Math.floor(Math.random() * 2.99);
+    var cpuChoice = Math.floor(Math.random() * 4.99);
     console.log(cpuChoice, playerChoice);
 
     switch (playerChoice) {
+        //player rock
         case 'Rock':
             if(cpuChoice == 0){
-                //its a tie
-                //alert("CPU chose Rock. It's a tie!");
+                //rock
                 result = "CPU chose Rock. It's a tie!";
-                draw(hrock, paper, scissors, hrock, paper, scissors);
-
+                draw(hrock, paper, scissors, lizard, spock, hrock, paper, scissors, lizard, spock);
             } 
-            else if(cpuChoice == 1){
-                //alert("CPU chose Paper. CPU wins!")
-                result = "CPU chose Paper. CPU wins!";
-                draw(hrock, paper, scissors, rock, hpaper, scissors);
+            else if (cpuChoice == 1){
+                //paper
+                result = "Paper covers Rock. CPU wins!";
+                draw(hrock, paper, scissors, lizard, spock, rock, hpaper, scissors, lizard, spock);
+            }
+            else if (cpuChoice == 2){
+                //scissors
+                result = "Rock breaks Scissors. You win!";
+                draw(hrock, paper, scissors, lizard, spock, rock, paper, hscissors, lizard, spock);
+            }
+            else if  (cpuChoice == 3){
+                //lizard
+                result = "Rock crushes Lizard. You win!";
+                draw(hrock, paper, scissors, lizard, spock, rock, paper, scissors, hlizard, spock);
             }
             else{
-                //alert("CPU chose Scissors. You win!")
-                result = "CPU chose Scissors. You win!";
-                draw(hrock, paper, scissors, rock, paper, hscissors);
+                //spock
+                result = "Spock vaporizes Rock. CPU wins!";
+                draw(hrock, paper, scissors, lizard, spock, rock, paper, scissors, lizard, hspock);
             }
             break;
+        //player paper
         case 'Paper':
             if(cpuChoice == 0){
-                //its a tie
-                //alert("CPU chose Rock. You win!");
-                result = "CPU chose Rock. You win!";
-                draw(rock, hpaper, scissors, hrock, paper, scissors);
+                //rock
+                result = "Paper covers Rock. You win!";
+                draw(rock, hpaper, scissors, lizard, spock, hrock, paper, scissors, lizard, spock);
             } 
             else if(cpuChoice == 1){
-                //alert("CPU chose Paper. It's a tie!")
+                //paper
                 result = "CPU chose Paper. It's a tie!";
-                draw(rock, hpaper, scissors, rock, hpaper, scissors);
+                draw(rock, hpaper, scissors, lizard, spock, rock, hpaper, scissors, lizard, spock);
+            }
+            else if(cpuChoice == 2){
+                //scissors
+                result = "Scissors cut Paper. CPU wins!";
+                draw(rock, hpaper, scissors, lizard, spock, rock, paper, hscissors, lizard, spock);
+            }
+            else if(cpuChoice == 3){
+                //lizard
+                result = "Lizard eats Paper. CPU wins!";
+                draw(rock, hpaper, scissors, lizard, spock, rock, paper, scissors, hlizard, spock);
             }
             else{
-                //alert("CPU chose Scissors. CPU wins!")
-                result = "CPU chose Scissors. CPU wins!";
-                draw(rock, hpaper, scissors, rock, paper, hscissors);
+                //spock
+                result = "Paper disproves Spock. You win!";
+                draw(rock, hpaper, scissors, lizard, spock, rock, paper, scissors, lizard, hspock);
             }
             break;
+        //player paper    
         case 'Scissors':
             if(cpuChoice == 0){
-                //its a tie
-                //alert("CPU chose Rock. CPU wins!");
-                result = "CPU chose Rock. CPU wins!";
-                draw(rock, paper, hscissors, hrock, paper, scissors);
+                //rock
+                result = "Rock breaks Scissors. CPU wins!";
+                draw(rock, paper, hscissors, lizard, spock, hrock, paper, scissors, lizard, spock);
             } 
             else if(cpuChoice == 1){
-                //alert("CPU chose Paper. You win!")
-                result = "CPU chose Paper. You win!";
-                draw(rock, paper, hscissors, rock, hpaper, scissors);
+                //paper
+                result = "Scissors cut Paper. You win!";
+                draw(rock, paper, hscissors, lizard, spock, rock, hpaper, scissors, lizard, spock);
+            }
+            else if(cpuChoice == 2){
+                //scissors
+                result = "CPU chose Scissors. It's a tie!";
+                draw(rock, paper, hscissors, lizard, spock, rock, paper, hscissors, lizard, spock);
+            }
+            else if(cpuChoice == 3){
+                //lizard
+                result = "Scissors decapitates Lizard. You win!";
+                draw(rock, paper, hscissors, lizard, spock, rock, paper, scissors, hlizard, spock);
             }
             else{
-                //alert("CPU chose Scissors. It's a Tie!")
-                result = "CPU chose Scissors. It's a Tie!";
-                draw(rock, paper, hscissors, rock, paper, hscissors);
+                //spock
+                result = "Spock smashes Scissors. CPU wins!";
+                draw(rock, paper, hscissors, lizard, spock, rock, paper, scissors, lizard, hspock);
             }
             break;
+        //player lizard    
+        case 'Lizard':
+            if(cpuChoice == 0){
+                //rock
+                result = "Rock crushes Lizard. CPU wins!";
+                draw(rock, paper, scissors, hlizard, spock, hrock, paper, scissors, lizard, spock);
+            } 
+            else if(cpuChoice == 1){
+                //paper
+                result = "Lizard eats Paper. You win!";
+                draw(rock, paper, scissors, hlizard, spock, rock, hpaper, scissors, lizard, spock);
+            }
+            else if(cpuChoice == 2){
+                //scissors
+                result = "Scissors decapitates Lizard. CPU wins!";
+                draw(rock, paper, scissors, hlizard, spock, rock, paper, hscissors, lizard, spock);
+            }
+            else if(cpuChoice == 3){
+                //lizard
+                result = "CPU chose Lizard. It's a tie!";
+                draw(rock, paper, scissors, hlizard, spock, rock, paper, scissors, hlizard, spock);
+            }
+            else{
+                //spock
+                result = "Lizard poisons Spock. You win!";
+                draw(rock, paper, scissors, hlizard, spock, rock, paper, scissors, lizard, hspock);
+            }
+            break;
+        //player lizard    
+        case 'Spock':
+            if(cpuChoice == 0){
+                //rock
+                result = "Spock vaporizes Rock. You win!";
+                draw(rock, paper, scissors, lizard, hspock, hrock, paper, scissors, lizard, spock);
+            } 
+            else if(cpuChoice == 1){
+                //paper
+                result = "Paper disaproves Spock. CPU wins!";
+                draw(rock, paper, scissors, lizard, hspock, rock, hpaper, scissors, lizard, spock);
+            }
+            else if(cpuChoice == 2){
+                //scissors
+                result = "Spock smashes Scissors. You win!";
+                draw(rock, paper, scissors, lizard, hspock, rock, paper, hscissors, lizard, spock);
+            }
+            else if(cpuChoice == 3){
+                //lizard
+                result = "Lizard poisons Spock. CPU wins!";
+                draw(rock, paper, scissors, lizard, hspock, rock, paper, scissors, hlizard, spock);
+            }
+            else{
+                //spock
+                result = "CPU chose Spock. It's a tie!";
+                draw(rock, paper, scissors, lizard, hspock, rock, paper, scissors, lizard, hspock);
+            }
+            break;        
     }
 }
