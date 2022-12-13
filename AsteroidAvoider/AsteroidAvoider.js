@@ -23,7 +23,7 @@ asteroidSprite.src = "images/asteroid.png"
 starSprite.src = "images/star.jpeg"
 
 startBackground.onload = function(){
-    gameStart();
+    main();
 }
 
 
