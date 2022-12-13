@@ -12,13 +12,14 @@ var score = 0
 var highScore = 0
 
 //sprites
+var startBackground = new Image()
 var shipSprite = new Image()
 var asteroidSprite = new Image()
-var startBackground = new Image()
 var starSprite = new Image()
+
+startBackground.src = "images/StartScreenbgrnd.png"
 shipSprite.src = "images/ship.png"
 asteroidSprite.src = "images/asteroid.png"
-startBackground.src = "images/StartScreenbgrnd.png"
 starSprite.src = "images/star.jpeg"
 
 

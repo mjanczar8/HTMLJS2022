@@ -5,6 +5,9 @@ html,body{
     background-image: url(images/space.webp);
 }
 
+.btn{
+    color: rgb(191, 191, 191);
+}
 #canvas{
     border: 1px double rgb(161, 161, 161);
     background-color: black;
