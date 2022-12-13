@@ -22,6 +22,10 @@ shipSprite.src = "images/ship.png"
 asteroidSprite.src = "images/asteroid.png"
 starSprite.src = "images/star.jpeg"
 
+starSprite.onload = function(){
+    gameStart();
+}
+
 
 //utility functions
 function randomRange(high, low){
