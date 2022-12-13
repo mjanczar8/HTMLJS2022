@@ -4,11 +4,22 @@ var timer = requestAnimationFrame(main)
 var ship
 var numAsteroids = 20
 var asteroids = []
+var numStar = 0
 var gameOver = true
 var gameStates = []
 var currentState = 0
 var score = 0
 var highScore = 0
+
+//sprites
+var shipSprite = new Image()
+var asteroidSprite = new Image()
+var startBackground = new Image()
+var starSprite = new Image()
+shipSprite.src = "images/ship.png"
+asteroidSprite.src = "images/asteroid.png"
+startBackground.src = "images/StartScreenbgrnd.png"
+starSprite.src = "images/star.jpeg"
 
 
 //utility functions
@@ -22,33 +33,51 @@ function gameStart(){
         asteroids[i] = new Asteroid()
     }
 
+    for(var i = 0; i < numStar; i++){
+        star[i] = new Asteroid()
+    }
+
     //Create an instance of the PlayerShip
     ship = new PlayerShip()
 }
 
 //Constructor Function for Asteroid Class
 function Asteroid(){
-    this.radius = randomRange(15,2)
+    this.radius = randomRange(30,10)
     // this.x = randomRange(canvas.width - this.radius, this.radius)
     // this.y = randomRange(canvas.height - this.radius, this.radius) - canvas.height
     this.x = randomRange(canvas.width - this.radius, this.radius) + canvas.width
-    this.y = randomRange(-canvas.height - this.radius, this.radius) + canvas.height
+    this.y = randomRange(canvas.height - this.radius, this.radius)// + canvas.height
     this.vx = randomRange(-10, -5)
     this.color = "white"
 
     this.drawAsteroid = function(){
         ctx.save()
-        ctx.beginPath()
-        ctx.fillStyle = this.color
-        ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI, true)
-        ctx.closePath()
-        ctx.fill()
+        ctx.drawImage(asteroidSprite, this.x, this.y, this.radius, this.radius)
+        // ctx.beginPath()
+        // ctx.fillStyle = this.color
+        // ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI, true)
+        // ctx.closePath()
+        // ctx.fill()
         ctx.restore()
 
     }
 
 }
 
+//INVIZ mech.
+function Star(){
+    this.radius = 20
+    this.x = randomRange(canvas.width - this.radius, this.radius) + canvas.width
+    this.y = randomRange(canvas.height - this.radius, this.radius)
+    this.vx = randomRange(-20, -10)
+
+    this.drawStar = function(){
+        ctx.save()
+        ctx.drawImage(starSprite, this.x, this.y, this.radius, this.radius)
+        ctx.restore()
+    }
+}    
 
 
 //Setup Keyboard Event Handlers 
@@ -125,7 +154,7 @@ function pressKeyUp(e){
 function PlayerShip(){
     this.x = canvas.width/2
     this.y = canvas.height/2
-    this.w = 20
+    this.w = 40
     this.h = 20
     this.vx = 0
     this.vy = 0
@@ -159,14 +188,15 @@ function PlayerShip(){
             ctx.restore()
 
         }
-        ctx.fillStyle = "red"
-        ctx.beginPath()
-        ctx.moveTo(10, 0)
-        ctx.lineTo(-10, 10)
-        ctx.lineTo(-10, -10)
-        ctx.lineTo(10, 0)
-        ctx.closePath()
-        ctx.fill();
+        ctx.drawImage(shipSprite, -10, -10, this.w, this.h)
+        // ctx.fillStyle = "red"
+        // ctx.beginPath()
+        // ctx.moveTo(10, 0)
+        // ctx.lineTo(-10, 10)
+        // ctx.lineTo(-10, -10)
+        // ctx.lineTo(10, 0)
+        // ctx.closePath()
+        // ctx.fill();
         ctx.restore() 
     }
 
@@ -202,12 +232,13 @@ function PlayerShip(){
 //Main Screen
 gameStates[0] = function(){
     ctx.save()
-    ctx.font = "30px Arial"
-    ctx.fillStyle = "white"
+    ctx.drawImage(startBackground, 0, 0, 1000, 800)
+    ctx.font = "60px Cust"
+    ctx.fillStyle = "Yellow"
     ctx.textAlign = "center"
-    ctx.fillText("Asteroid Avoider", canvas.width/2, canvas.height/2-30)
+    ctx.fillText("Asteroid Avoider", canvas.width/2, canvas.height/2 - 30)
     ctx.font = "15px Arial"
-    ctx.fillText("Press Space to Start", canvas.width/2, canvas.height/2 + 20)
+    ctx.fillText("Press Space to Start", canvas.width/2, canvas.height/2)
     ctx.restore()
 
 }
@@ -233,7 +264,7 @@ gameStates[1] = function(){
     //Horizontal Movement
 
     if(ship.right){
-        ship.vx = 4
+        ship.vx = 5
     }else{
         ship.vx = -3
     }
@@ -243,7 +274,6 @@ gameStates[1] = function(){
         var dX = ship.x - asteroids[i].x
         var dY = ship.y - asteroids[i].y
         var distance = Math.sqrt((dX*dX)+(dY*dY))
-
         if(detectCollision(distance, (ship.h/2 + asteroids[i].radius))){
             console.log("hit asteroid")
             gameOver = true
@@ -253,23 +283,27 @@ gameStates[1] = function(){
         }
 
 
-        if(asteroids[i].y > canvas.height + asteroids[i].radius){
-            asteroids[i].x = randomRange(canvas.width - asteroids[i].radius, asteroids[i].radius)
-            asteroids[i].y = randomRange(canvas.height - asteroids[i].radius, asteroids[i].radius) -  canvas.height
+        if(asteroids[i].x < - asteroids[i].radius){
+            asteroids[i].x = randomRange(canvas.width - asteroids[i].radius, asteroids[i].radius) + canvas.width
+            asteroids[i].y = randomRange(canvas.height - asteroids[i].radius, asteroids[i].radius)
         }
         if(!gameOver){
             asteroids[i].x += asteroids[i].vx
             asteroids[i].drawAsteroid()
+            
         }
     }
     if(!gameOver){
         ship.move()
         ship.drawShip()
+
     }
 
     while(asteroids.length < numAsteroids){
         asteroids.push(new Asteroid())
     }
+
+    
 }
 
 //Game Over
@@ -330,6 +364,10 @@ function scoreTimer(){
         if(score % 5 == 0){
             numAsteroids += 5
             console.log(numAsteroids)
+        }
+        if(score % 10 == 0){
+            numStar += 1
+            console.log(numStar)
         }
 
         setTimeout(scoreTimer, 1000)

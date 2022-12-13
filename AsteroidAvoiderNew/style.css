@@ -1,9 +1,32 @@
 html,body{
     display: flex;
     justify-content: center;
-    background-color: black;
+    background-color: rgb(40, 40, 40);
+    background-image: url(images/space.webp);
 }
 
 #canvas{
-    border: 1px solid blue;
+    border: 1px double rgb(161, 161, 161);
+    background-color: black;
+}
+
+#container{
+    background-color: rgb(40, 40, 40);
+    padding-left: 14px;
+    padding-right: 14px;
+}
+
+h1{
+    text-align: center;
+    font-family: "Cust";
+    font-size: 45px;
+    color: whitesmoke;
+    
+}
+
+footer{
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 10px;
+    color: whitesmoke;
 }
